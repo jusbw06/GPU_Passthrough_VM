@@ -33,7 +33,7 @@ This `xml` file contains the `libvirt` configuration settings for the VM. Simply
 
 
 #### My Source:
-Arch Linux wiki article: [PCI passthrough via OVMF] (https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF)
+Arch Linux wiki article: [PCI passthrough via OVMF](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF)
 
 #### My Hardware:
 - GT 710 (Host)
