@@ -1,0 +1,8 @@
+[Unit]
+Description=This Service checks if the vfio parameters are set, and starts the Windows virtual machine accordingly
+
+[Service]
+ExecStart=[Insert path to vmStartScript.sh here]/vmStartScript.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+load_video
+set gfxpayload=keep
+insmod gzio
+insmod part_gpt
+insmod ext2
+set root='hd2,gpt3'
+if [ x$feature_platform_search_hint = xy ]; then
+  search --no-floppy --fs-uuid --set=root --hint-ieee1275='ieee1275//disk@0,gpt3' --hint-bios=hd2,gpt3 --hint-efi=hd2,gpt3 --hint-baremetal=ahci2,gpt3  d768b3da-18c3-4ea7-a984-02a0aef047a0
+else
+  search --no-floppy --fs-uuid --set=root d768b3da-18c3-4ea7-a984-02a0aef047a0
+fi
+echo	'Loading Linux linux ...'
+linux	/boot/vmlinuz-linux root=UUID=d768b3da-18c3-4ea7-a984-02a0aef047a0 rw  loglevel=3 quiet amd_iommu=on iommu=pt module_blacklist=amdgpu vfio-pci.ids=1002:67df,1002:aaf0,1022:145c
+echo	'Loading initial ramdisk ...'
+initrd	/boot/initramfs-linux.img
+
